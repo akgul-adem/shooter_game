@@ -29,6 +29,14 @@ BG_COLOR = BLUE_COLOR
 
 running = True  # Main loop control
 
+# player
+player_x_pos = 300
+player_y_pos = 500
+player_img = pygame.image.load("./assets/img/player/Idle/0.png").convert_alpha()
+player_rect = player_img.get_rect()
+player_rect.center = (player_x_pos, player_y_pos)
+
+
 # ----------------------------
 # MAIN LOOP
 # ----------------------------
@@ -63,6 +71,11 @@ while running:
 
     # Render everything
     screen.fill(BG_COLOR)  # Clear screen every frame
+    # player
+    # Display player img at player rect position
+    screen.blit(player_img, player_rect)
+
+
 
     pygame.display.update()  # Show frame
 
