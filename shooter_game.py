@@ -32,7 +32,9 @@ running = True  # Main loop control
 # player
 player_x_pos = 300
 player_y_pos = 500
+player_scale = 2
 player_img = pygame.image.load("./assets/img/player/Idle/0.png").convert_alpha()
+player_img = pygame.transform.scale(surface= player_img, size= (player_img.get_width()*player_scale, player_img.get_height()*player_scale))
 player_rect = player_img.get_rect()
 player_rect.center = (player_x_pos, player_y_pos)
 
