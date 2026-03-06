@@ -71,7 +71,7 @@ while running:
     # player
     # Display player img at player rect position
     screen.blit(player_1.image, player_1.rect)
-
+    player_1.draw(screen = screen)
 
 
     pygame.display.update()  # Show frame
