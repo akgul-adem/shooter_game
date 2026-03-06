@@ -1,4 +1,5 @@
 import pygame  # Game library
+from soldier import Soldier
 
 # ----------------------------
 # SETUP
@@ -30,13 +31,7 @@ BG_COLOR = BLUE_COLOR
 running = True  # Main loop control
 
 # player
-player_x_pos = 300
-player_y_pos = 500
-player_scale = 2
-player_img = pygame.image.load("./assets/img/player/Idle/0.png").convert_alpha()
-player_img = pygame.transform.scale(surface= player_img, size= (player_img.get_width()*player_scale, player_img.get_height()*player_scale))
-player_rect = player_img.get_rect()
-player_rect.center = (player_x_pos, player_y_pos)
+player_1 = Soldier(x_pos = 300,y_pos = 500,scale = 2 )
 
 
 # ----------------------------
@@ -75,7 +70,7 @@ while running:
     screen.fill(BG_COLOR)  # Clear screen every frame
     # player
     # Display player img at player rect position
-    screen.blit(player_img, player_rect)
+    screen.blit(player_1.image, player_1.rect)
 
 
 
