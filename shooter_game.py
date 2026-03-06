@@ -31,9 +31,9 @@ BG_COLOR = BLUE_COLOR
 running = True  # Main loop control
 
 # player
-player_1 = Soldier(x_pos = 300,y_pos = 500,scale = 2 )
-
-
+player_1 = Soldier(x_pos = 300, y_pos = 500, scale = 2 )
+#enemy
+enemy_1 = Soldier(x_pos = 100, y_pos = 500, scale = 2)
 # ----------------------------
 # MAIN LOOP
 # ----------------------------
@@ -69,11 +69,11 @@ while running:
     # Render everything
     screen.fill(BG_COLOR)  # Clear screen every frame
     # player
-    # Display player img at player rect position
-    screen.blit(player_1.image, player_1.rect)
+    # Display player_1
     player_1.draw(screen = screen)
-
-
+    # enemy
+    # Display enemy_1
+    enemy_1.draw(screen = screen)
     pygame.display.update()  # Show frame
 
     # FPS LIMIT
