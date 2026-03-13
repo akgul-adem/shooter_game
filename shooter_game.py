@@ -31,9 +31,9 @@ BG_COLOR = BLUE_COLOR
 running = True  # Main loop control
 
 # player
-player_1 = Soldier(x_pos = 300, y_pos = 500, scale = 2 )
+player_1 = Soldier(x_pos = 300, y_pos = 500, scale = 2, speed = 5 )
 #enemy
-enemy_1 = Soldier(x_pos = 100, y_pos = 500, scale = 2)
+enemy_1 = Soldier(x_pos = 600, y_pos = 500, scale = 2, speed = 5)
 # ----------------------------
 # MAIN LOOP
 # ----------------------------
@@ -57,10 +57,24 @@ while running:
             # Press ESC to quit
             if event.key == pygame.K_ESCAPE:
                 running = False
-
+                pass
+            if event.key == pygame.K_d:
+                player_1.moving_right = True 
+                pass
+            if event.key == pygame.K_a:
+                player_1.moving_left = True 
+                pass
         # KEYUP happens ONCE when a key is released
         if event.type == pygame.KEYUP:
-            pass  # Placeholder for future logic
+            if event.key == pygame.K_d:
+                player_1.moving_right = False 
+                pass
+            if event.key == pygame.K_a:
+                player_1.moving_left = False 
+                pass
+
+
+
 
     # ----------------------------
     # RENDERING
@@ -70,6 +84,7 @@ while running:
     screen.fill(BG_COLOR)  # Clear screen every frame
     # player
     # Display player_1
+    player_1.move()
     player_1.draw(screen = screen)
     # enemy
     # Display enemy_1
