@@ -31,9 +31,9 @@ BG_COLOR = BLUE_COLOR
 running = True  # Main loop control
 
 # player
-player_1 = Soldier(x_pos = 300, y_pos = 500, scale = 2, speed = 5 )
+player_1 = Soldier(charactar_type = "player",x_pos = 300, y_pos = 500, scale = 2, speed = 5 )
 #enemy
-enemy_1 = Soldier(x_pos = 600, y_pos = 500, scale = 2, speed = 5)
+enemy_1 = Soldier(charactar_type = "enemy",x_pos = 600, y_pos = 500, scale = 2, speed = 5)
 # ----------------------------
 # MAIN LOOP
 # ----------------------------
