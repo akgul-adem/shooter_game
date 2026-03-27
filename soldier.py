@@ -16,7 +16,8 @@ class Soldier(pygame.sprite.Sprite):
         self.acelaration_step = self.speed / (60 * max_axelaration_in_seconds)
         self.moving_right = False
         self.moving_left = False
-
+        self.derection = 1
+        self.flip = False
 
 
 
@@ -29,7 +30,8 @@ class Soldier(pygame.sprite.Sprite):
 
     
     def draw(self,screen):
-        screen.blit(self.image, self.rect)
+        screen.blit(pygame.transform.flip(self.image, self.flip, False), self.rect)
+        
 
 
     def move(self):
@@ -40,11 +42,15 @@ class Soldier(pygame.sprite.Sprite):
 
         if self.moving_right:
             target_speed = self.speed
+            self.derection = 1
+            self.flip = False
             pass
 
 
         if self.moving_left:
             target_speed = -self.speed
+            self.derection = -1
+            self.flip = True
             pass
 
         if self.current_speed < target_speed:
