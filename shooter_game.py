@@ -85,6 +85,9 @@ while running:
     # player
     # Display player_1
     player_1.move()
+
+    player_1.update_animation()
+
     player_1.draw(screen = screen)
     # enemy
     # Display enemy_1
