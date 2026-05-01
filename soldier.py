@@ -27,14 +27,36 @@ class Soldier(pygame.sprite.Sprite):
         
         self.animation_list = []
         self.frame_index = 0
+        self.action = 0
         self.update_time = pygame.time.get_ticks()
+
+        # idle animation
+
+        temp_anim_list = []
+
         for i in range (5):
             original_img = pygame.image.load(f"./assets/img/{self.charactar_type}/Idle/{i}.png").convert_alpha()
             img = pygame.transform.scale(surface= original_img, size= (original_img.get_width()*self.scale, original_img.get_height()*self.scale))
         
-            self.animation_list.append(img)
+            temp_anim_list.append(img)
 
-        self.image = self.animation_list [self.frame_index]
+        self.image = self.animation_list.append(temp_anim_list)
+
+        # run animation
+
+        temp_anim_list = []
+
+        for i in range (6):
+            original_img = pygame.image.load(f"./assets/img/{self.charactar_type}/Run/{i}.png").convert_alpha()
+            img = pygame.transform.scale(surface= original_img, size= (original_img.get_width()*self.scale, original_img.get_height()*self.scale))
+        
+            temp_anim_list.append(img)
+
+        self.image = self.animation_list.append(temp_anim_list)
+
+        # self image
+
+        self.image = self.animation_list [self.action] [self.frame_index]
 
         self.rect = self.image.get_rect()
         self.rect.center = (self.x_pos, self.y_pos)
@@ -86,10 +108,10 @@ class Soldier(pygame.sprite.Sprite):
         ANIMATION_COOLDOWN = 100
 
 
-        self.image = self.animation_list [self.frame_index]
+        self.image = self.animation_list [self.action] [self.frame_index]
 
         if pygame.time.get_ticks() - self.update_time > ANIMATION_COOLDOWN:
             self.update_time = pygame.time.get_ticks()
             self.frame_index += 1
-            if self.frame_index >= len(self.animation_list):
+            if self.frame_index >= len(self.animation_list [self.action]):
                 self.frame_index = 0
