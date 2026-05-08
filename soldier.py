@@ -1,7 +1,7 @@
 import pygame  # Game library
 
 pygame.init()  # Initialize all pygame modules
-max_axelaration_in_seconds = 0.35
+max_axelaration_in_seconds = 0.25
 class Soldier(pygame.sprite.Sprite):
     def __init__(self,x_pos,y_pos,scale,speed,charactar_type):
         super().__init__()
@@ -102,7 +102,13 @@ class Soldier(pygame.sprite.Sprite):
 
         self.rect.x += int(dx)
         self.rect.y += int(dy)
-
+    def update_action(self,new_action):
+        # Check if the new action is differnet then the preveious one
+        if new_action != self.action:
+            self.action = new_action
+            #update animation settings
+            self.frame_index = 0
+            self.update_time = pygame.time.get_ticks()
 
     def update_animation(self):
         ANIMATION_COOLDOWN = 100
