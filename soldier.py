@@ -2,6 +2,9 @@ import pygame  # Game library
 
 pygame.init()  # Initialize all pygame modules
 max_axelaration_in_seconds = 0.25
+gravity = 0.75
+
+
 class Soldier(pygame.sprite.Sprite):
     def __init__(self,x_pos,y_pos,scale,speed,charactar_type):
         super().__init__()
@@ -98,12 +101,19 @@ class Soldier(pygame.sprite.Sprite):
         if self.current_speed < target_speed:
             self.current_speed += self.acelaration_step
             if self.current_speed > target_speed:
-                self.current_speed = target_speed
+                self.current_speed = target_speed 
         
         elif self.current_speed > target_speed:
             self.current_speed -= self.acelaration_step
             if self.current_speed < target_speed:
                 self.current_speed = target_speed
+
+
+        # apply gravity
+
+        self.velocity_y += gravity
+        if self.velocity_y > 10:
+            self.velocity_y = 10
 
         dx = self.current_speed
         dy += self.velocity_y
