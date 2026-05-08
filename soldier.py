@@ -7,6 +7,7 @@ class Soldier(pygame.sprite.Sprite):
         super().__init__()
 
         self.charactar_type = charactar_type
+        self.alive = True
 
         self.x_pos = x_pos
         self.y_pos = y_pos

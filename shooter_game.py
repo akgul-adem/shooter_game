@@ -82,16 +82,17 @@ while running:
 
     # Render everything
     screen.fill(BG_COLOR)  # Clear screen every frame
-    if player_1.moving_left or player_1.moving_right:
-        player_1.update_action(1)
-    else:
-        player_1.update_action(0)
-        
+    if player_1.alive:
+        if player_1.moving_left or player_1.moving_right:
+            player_1.update_action(1)
+        else:
+            player_1.update_action(0)
+       
 
 
-    # player
-    # Display player_1
-    player_1.move()
+        # player
+        # Display player_1
+        player_1.move()
 
     player_1.update_animation()
 
