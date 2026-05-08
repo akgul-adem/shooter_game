@@ -22,7 +22,8 @@ class Soldier(pygame.sprite.Sprite):
         self.derection = 1
         self.flip = False
 
-
+        self.jump = False
+        self.velocity_y = 0
 
         
         
@@ -89,6 +90,11 @@ class Soldier(pygame.sprite.Sprite):
             self.flip = True
             pass
 
+        if self.jump:
+            self.velocity_y = -10
+            self.jump = False
+
+
         if self.current_speed < target_speed:
             self.current_speed += self.acelaration_step
             if self.current_speed > target_speed:
@@ -100,6 +106,8 @@ class Soldier(pygame.sprite.Sprite):
                 self.current_speed = target_speed
 
         dx = self.current_speed
+        dy += self.velocity_y
+
 
         self.rect.x += int(dx)
         self.rect.y += int(dy)

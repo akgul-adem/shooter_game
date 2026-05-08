@@ -73,7 +73,9 @@ while running:
                 player_1.moving_left = False 
                 pass
 
-
+            if event.key == pygame.K_SPACE:
+                player_1.jump = True
+                pass
 
 
     # ----------------------------
