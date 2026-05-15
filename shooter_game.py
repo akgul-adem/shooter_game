@@ -84,6 +84,11 @@ while running:
 
     # Render everything
     screen.fill(BG_COLOR)  # Clear screen every frame
+
+    # adding the floor
+    pygame.draw.line(screen, RED_COLOR, (20, 540), (760, 540), 10)
+
+
     if player_1.alive:
         if player_1.moving_left or player_1.moving_right:
             player_1.update_action(1)
